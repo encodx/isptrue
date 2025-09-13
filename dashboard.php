@@ -11,9 +11,10 @@
             background-color: #f0f2f5;
             margin: 0;
             display: flex;
+            transition: margin-left 0.3s;
         }
         .sidebar {
-            width: 220px; /* Reduced width */
+            width: 220px;
             background-color: #ffffff;
             height: 100vh;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -21,10 +22,14 @@
             flex-direction: column;
             position: fixed;
             z-index: 100;
+            transition: width 0.3s;
         }
         .sidebar-top {
             padding: 20px;
             border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .logo {
             display: flex;
@@ -32,11 +37,18 @@
             font-size: 24px;
             font-weight: bold;
             color: #333;
+            overflow: hidden;
+            white-space: nowrap;
         }
         .logo i {
             font-size: 30px;
             color: #007bff;
             margin-right: 10px;
+            transition: margin 0.3s;
+        }
+        .logo span {
+            display: inline-block;
+            transition: opacity 0.3s;
         }
         .menu-container {
             flex-grow: 1;
@@ -60,6 +72,7 @@
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
             font-size: 15px;
+            white-space: nowrap;
         }
         .menu-item a:hover, .menu-item.active a {
             background-color: #007bff;
@@ -68,13 +81,19 @@
         .menu-item a i {
             margin-right: 15px;
             font-size: 16px;
+            transition: margin 0.3s;
+        }
+        .menu-item a span {
+             display: inline-block;
+            transition: opacity 0.3s;
         }
         .main-content {
-            margin-left: 220px; /* Match new sidebar width */
+            margin-left: 220px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             height: 100vh;
+            transition: margin-left 0.3s;
         }
         .header {
             display: flex;
@@ -127,32 +146,56 @@
             font-size: 14px;
             border-top: 1px solid #eee;
         }
+
+        /* Collapsed state */
+        body.sidebar-collapsed .sidebar {
+            width: 80px;
+        }
+        body.sidebar-collapsed .main-content {
+            margin-left: 80px;
+        }
+        body.sidebar-collapsed .logo span,
+        body.sidebar-collapsed .menu-item a span {
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
+        }
+        body.sidebar-collapsed .logo i {
+            margin-right: 0;
+        }
+        body.sidebar-collapsed .menu-item a {
+             justify-content: center;
+        }
+        body.sidebar-collapsed .menu-item a i {
+            margin-right: 0;
+        }
     </style>
 </head>
 <body>
     <div class="sidebar">
         <div class="sidebar-top">
             <div class="logo">
-                <i class="bi bi-hexagon-fill"></i> zynix
+                <i class="bi bi-hexagon-fill"></i>
+                <span>zynix</span>
             </div>
         </div>
         <div class="menu-container">
             <ul class="menu">
-                <li class="menu-item active"><a href="#"><i class="bi bi-house-door"></i> Dashboards</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-app-indicator"></i> Apps</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-list-nested"></i> Nested Menu</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-person-badge"></i> Authentication</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-exclamation-circle"></i> Error</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-file-earmark"></i> Pages</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-card-list"></i> Forms</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-gem"></i> UI Elements</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-vector-pen"></i> Advanced UI</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-tools"></i> Utilities</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-grid"></i> Widgets</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-map"></i> Maps</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-emoji-smile"></i> Icons</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-bar-chart"></i> Charts</a></li>
-                <li class="menu-item"><a href="#"><i class="bi bi-table"></i> Tables</a></li>
+                <li class="menu-item active"><a href="#"><i class="bi bi-house-door"></i> <span>Dashboards</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-app-indicator"></i> <span>Apps</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-list-nested"></i> <span>Nested Menu</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-person-badge"></i> <span>Authentication</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-exclamation-circle"></i> <span>Error</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-file-earmark"></i> <span>Pages</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-card-list"></i> <span>Forms</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-gem"></i> <span>UI Elements</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-vector-pen"></i> <span>Advanced UI</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-tools"></i> <span>Utilities</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-grid"></i> <span>Widgets</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-map"></i> <span>Maps</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-emoji-smile"></i> <span>Icons</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-bar-chart"></i> <span>Charts</span></a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-table"></i> <span>Tables</span></a></li>
             </ul>
         </div>
     </div>
@@ -175,31 +218,20 @@
             <div class="content-area">
                  <!-- Main content goes here -->
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
             </div>
-
             <div class="footer">
                 Copyright © 2025 Zynix. Designed with <i class="bi bi-heart-fill" style="color: red;"></i> by Spruko All rights reserved
             </div>
         </div>
     </div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const body = document.querySelector('body');
+
+        hamburger.addEventListener('click', () => {
+            body.classList.toggle('sidebar-collapsed');
+        });
+    </script>
 </body>
 </html>
