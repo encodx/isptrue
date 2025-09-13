@@ -1,4 +1,13 @@
-<?php require_once '../templates/sidebar.php'; ?>
+<?php 
+session_start();
+
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: login.php');
+    exit;
+}
+
+require_once '../templates/sidebar.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +29,7 @@
                 <i class="bi bi-bell icon"></i>
                 <div class="user-profile">
                     <img src="https://i.pravatar.cc/30" alt="User Avatar">
-                    <span>Mr. Jack</span>
+                    <span><?php echo htmlspecialchars($_SESSION['username']); ?></span>
                 </div>
                  <i class="bi bi-gear icon"></i>
             </div>

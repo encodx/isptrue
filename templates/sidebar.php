@@ -26,6 +26,7 @@ function render_sidebar() {
                 <li class="menu-item"><a href="#"><i class="bi bi-emoji-smile"></i> <span>Icons</span></a></li>
                 <li class="menu-item"><a href="#"><i class="bi bi-bar-chart"></i> <span>Charts</span></a></li>
                 <li class="menu-item"><a href="#"><i class="bi bi-table"></i> <span>Tables</span></a></li>
+                <li class="menu-item"><a href="logout.php"><i class="bi bi-box-arrow-left"></i> <span>Logout</span></a></li>
             </ul>
         </div>
     </div>
