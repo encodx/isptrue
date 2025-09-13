@@ -13,21 +13,22 @@
             display: flex;
         }
         .sidebar {
-            width: 250px;
+            width: 220px; /* Reduced width */
             background-color: #ffffff;
-            padding: 20px;
             height: 100vh;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            position: fixed; /* Fixed Sidebar */
+            position: fixed;
             z-index: 100;
-            overflow-y: auto;
+        }
+        .sidebar-top {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
         }
         .logo {
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
             font-size: 24px;
             font-weight: bold;
             color: #333;
@@ -37,23 +38,28 @@
             color: #007bff;
             margin-right: 10px;
         }
+        .menu-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px 10px 20px 20px;
+        }
         .menu {
             list-style: none;
             padding: 0;
             margin: 0;
-            flex-grow: 1;
         }
         .menu-item {
-            margin-bottom: 10px;
+            margin-bottom: 4px;
         }
         .menu-item a {
             display: flex;
             align-items: center;
-            padding: 10px 15px;
+            padding: 9px 15px;
             color: #555;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
+            font-size: 15px;
         }
         .menu-item a:hover, .menu-item.active a {
             background-color: #007bff;
@@ -61,23 +67,22 @@
         }
         .menu-item a i {
             margin-right: 15px;
-            font-size: 18px;
+            font-size: 16px;
         }
         .main-content {
-            margin-left: 250px; /* Offset for fixed sidebar */
+            margin-left: 220px; /* Match new sidebar width */
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            height: 100vh; /* Full height */
+            height: 100vh;
         }
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: #fff;
-            padding: 15px 20px;
+            padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            /* The header is now part of the non-scrolling content */
         }
         .header .left-controls {
             display: flex;
@@ -110,14 +115,14 @@
         }
         .scrollable-content {
             flex-grow: 1;
-            overflow-y: auto; /* Make this area scrollable */
+            overflow-y: auto;
             padding: 20px;
         }
         .footer {
             text-align: center;
             padding: 20px;
             background-color: #fff;
-            margin-top: 20px; /* Add some space above the footer */
+            margin-top: 20px;
             color: #888;
             font-size: 14px;
             border-top: 1px solid #eee;
@@ -126,26 +131,30 @@
 </head>
 <body>
     <div class="sidebar">
-        <div class="logo">
-            <i class="bi bi-hexagon-fill"></i> zynix
+        <div class="sidebar-top">
+            <div class="logo">
+                <i class="bi bi-hexagon-fill"></i> zynix
+            </div>
         </div>
-        <ul class="menu">
-            <li class="menu-item active"><a href="#"><i class="bi bi-house-door"></i> Dashboards</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-app-indicator"></i> Apps</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-list-nested"></i> Nested Menu</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-person-badge"></i> Authentication</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-exclamation-circle"></i> Error</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-file-earmark"></i> Pages</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-card-list"></i> Forms</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-gem"></i> UI Elements</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-vector-pen"></i> Advanced UI</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-tools"></i> Utilities</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-grid"></i> Widgets</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-map"></i> Maps</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-emoji-smile"></i> Icons</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-bar-chart"></i> Charts</a></li>
-            <li class="menu-item"><a href="#"><i class="bi bi-table"></i> Tables</a></li>
-        </ul>
+        <div class="menu-container">
+            <ul class="menu">
+                <li class="menu-item active"><a href="#"><i class="bi bi-house-door"></i> Dashboards</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-app-indicator"></i> Apps</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-list-nested"></i> Nested Menu</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-person-badge"></i> Authentication</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-exclamation-circle"></i> Error</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-file-earmark"></i> Pages</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-card-list"></i> Forms</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-gem"></i> UI Elements</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-vector-pen"></i> Advanced UI</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-tools"></i> Utilities</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-grid"></i> Widgets</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-map"></i> Maps</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-emoji-smile"></i> Icons</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-bar-chart"></i> Charts</a></li>
+                <li class="menu-item"><a href="#"><i class="bi bi-table"></i> Tables</a></li>
+            </ul>
+        </div>
     </div>
     <div class="main-content">
         <div class="header">
@@ -164,26 +173,27 @@
         </div>
         <div class="scrollable-content">
             <div class="content-area">
-                <!-- Main content goes here -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                 <!-- Main content goes here -->
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
             </div>
 
             <div class="footer">
