@@ -141,7 +141,6 @@
             text-align: center;
             padding: 20px;
             background-color: #fff;
-            margin-top: 20px;
             color: #888;
             font-size: 14px;
             border-top: 1px solid #eee;
@@ -217,11 +216,12 @@
         <div class="scrollable-content">
             <div class="content-area">
                  <!-- Main content goes here -->
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+                 <p>Scroll down to see the footer remains fixed.</p>
+                 <div style="height: 1200px; background: #e9ecef; border-radius: 5px; display:flex; align-items:center; justify-content:center; margin: 20px 0;">Long content area to demonstrate scrolling</div>
             </div>
-            <div class="footer">
-                Copyright © 2025 Zynix. Designed with <i class="bi bi-heart-fill" style="color: red;"></i> by Spruko All rights reserved
-            </div>
+        </div>
+        <div class="footer">
+             Copyright © 2025 Zynix. Designed with <i class="bi bi-heart-fill" style="color: red;"></i> by Spruko All rights reserved
         </div>
     </div>
 
