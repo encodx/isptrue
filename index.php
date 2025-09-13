@@ -8,13 +8,14 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(to bottom right, #e0f2ff, #ffffff);
+            background: linear-gradient(to top, #f1f8ff, #d2e9ff);
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             height: 100vh;
             margin: 0;
             color: #333;
+            padding-top: 50px;
         }
         .container {
             text-align: center;
