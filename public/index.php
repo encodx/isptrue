@@ -1,21 +1,16 @@
 <?php
+// This bootstrap file handles the core redirection logic.
+require_once __DIR__ . '/bootstrap.php';
+
 session_start();
 
-// First, check if the configuration file exists.
-if (!file_exists(__DIR__ . '/../config/config.php')) {
-    // If it doesn't exist, redirect to the installation page.
-    header('Location: install.php');
-    exit;
-}
-
-// If the config file exists, check if the user is logged in.
+// If the user is not logged in, redirect to the login page.
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    // If not logged in, redirect to the login page.
     header('Location: login.php');
     exit;
 }
 
-// If the user is logged in, proceed to show the dashboard.
+// Load the sidebar
 require_once __DIR__ . '/../templates/sidebar.php';
 ?>
 <!DOCTYPE html>

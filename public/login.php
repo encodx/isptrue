@@ -1,10 +1,10 @@
 <?php
-// This will redirect to install.php if config.php is missing.
+// This bootstrap file handles the core redirection logic.
 require_once __DIR__ . '/bootstrap.php';
 
 session_start();
 
-// If the user is already logged in, redirect to the dashboard.
+// If the user is already logged in, redirect them to the dashboard.
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     header('Location: index.php');
     exit;

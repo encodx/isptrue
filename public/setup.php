@@ -1,4 +1,7 @@
 <?php
+// This bootstrap file handles the core redirection logic.
+require_once __DIR__ . '/bootstrap.php';
+
 session_start();
 
 $step = $_POST['step'] ?? $_GET['step'] ?? null;
@@ -71,6 +74,12 @@ if ($step == 1) {
 
     // Create config file
     $config_content = "<?php\n\ndefine('DB_HOST', '{$db['host']}');\ndefine('DB_NAME', '{$db['name']}');\ndefine('DB_USER', '{$db['user']}');\ndefine('DB_PASS', '{$db['pass']}');\n";
+    
+    // Ensure the config directory exists
+    if (!is_dir(__DIR__ . '/../config')) {
+        mkdir(__DIR__ . '/../config', 0755, true);
+    }
+    
     file_put_contents(__DIR__ . '/../config/config.php', $config_content);
 
     try {
@@ -102,6 +111,10 @@ if ($step == 1) {
         exit;
 
     } catch (Exception $e) {
+        // If something goes wrong, delete the created config file.
+        if (file_exists(__DIR__ . '/../config/config.php')) {
+            unlink(__DIR__ . '/../config/config.php');
+        }
         header('Location: install.php?error=' . urlencode($e->getMessage()));
         exit;
     }
