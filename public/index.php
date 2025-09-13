@@ -1,12 +1,17 @@
-<?php 
+<?php
+// This will handle redirection to the installer if the config file is missing.
+require_once __DIR__ . '/bootstrap.php';
+
 session_start();
 
+// If the user is not logged in, redirect to the login page.
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: login.php');
     exit;
 }
 
-require_once '../templates/sidebar.php'; 
+// Include the sidebar template
+require_once __DIR__ . '/../templates/sidebar.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
