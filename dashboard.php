@@ -20,6 +20,9 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
+            position: fixed; /* Fixed Sidebar */
+            z-index: 100;
+            overflow-y: auto;
         }
         .logo {
             display: flex;
@@ -61,8 +64,11 @@
             font-size: 18px;
         }
         .main-content {
+            margin-left: 250px; /* Offset for fixed sidebar */
             flex-grow: 1;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Full height */
         }
         .header {
             display: flex;
@@ -70,8 +76,8 @@
             align-items: center;
             background-color: #fff;
             padding: 15px 20px;
-            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            /* The header is now part of the non-scrolling content */
         }
         .header .left-controls {
             display: flex;
@@ -82,7 +88,6 @@
             cursor: pointer;
             margin-right: 20px;
         }
-
         .header .right-controls {
             display: flex;
             align-items: center;
@@ -103,11 +108,16 @@
             border-radius: 50%;
             margin-right: 10px;
         }
+        .scrollable-content {
+            flex-grow: 1;
+            overflow-y: auto; /* Make this area scrollable */
+            padding: 20px;
+        }
         .footer {
             text-align: center;
             padding: 20px;
             background-color: #fff;
-            margin-top: auto;
+            margin-top: 20px; /* Add some space above the footer */
             color: #888;
             font-size: 14px;
             border-top: 1px solid #eee;
@@ -152,12 +162,33 @@
                  <i class="bi bi-gear icon"></i>
             </div>
         </div>
-        <div class="content-area" style="padding-top:20px;">
-            <!-- Main content goes here -->
-        </div>
+        <div class="scrollable-content">
+            <div class="content-area">
+                <!-- Main content goes here -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (add a lot of content here to test scrolling) ...</p>
+            </div>
 
-        <div class="footer">
-            Copyright © 2025 Zynix. Designed with <i class="bi bi-heart-fill" style="color: red;"></i> by Spruko All rights reserved
+            <div class="footer">
+                Copyright © 2025 Zynix. Designed with <i class="bi bi-heart-fill" style="color: red;"></i> by Spruko All rights reserved
+            </div>
         </div>
     </div>
 </body>
